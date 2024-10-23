@@ -1,0 +1,19 @@
+FROM alpine:latest
+
+# Install dependencies
+RUN apk add --update gcc g++ clang gdb cmake make ninja autoconf automake dos2unix tar rsync hiredis hiredis-dev libpq-dev nlohmann-json valgrind git redis curl-dev boost-dev\
+    && rm -rf /tmp/* /var/cache/apk/*
+
+# Creates a directory for this part of the project
+WORKDIR /app
+
+RUN mkdir -p /src
+
+# Copies everything in the directory
+COPY . .
+
+# Compiles the project
+RUN cd ./src/drone && g++ -o testdrone main.cpp -lhiredis 
+
+# Execute the project
+CMD ["./src/drone/testdrone"]
