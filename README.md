@@ -10,5 +10,10 @@ The **Sky Watch** project implements a surveillance system for a 6 km² area usi
 - **Database Logging**: Information about sessions, drones and potential failures is stored in a PostgreSQL database for analysis and reporting.
 - **Optimized Route Calculation**: The system calculates drone routes to minimize the number of drones needed while ensuring consistent area coverage.
 
+## How To Run
+- **If a server redis is running on your system**: `sudo service redis-server stop`
+- **To start services**: `docker-compose up`
+- **To delete containers**: `docker-compose down`
+
 ## Further Information
 For more details, please refer to the **Sky_watch.pdf** document.
